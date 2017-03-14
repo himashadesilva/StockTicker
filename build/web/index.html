@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script>
+    const source = new EventSource('stream');
+    source.onmessage = function (e) {
+        const stockprice = document.getElementById('stockprice');
+        stockprice.insertAdjacentHTML('afterbegin', e.data + '<br/>');
+    };
+</script>  
+</head>
+
+<body>
+<h1>Stock price update event stream</h1>
+<div id="stockprice"></div>
+</body>
+</html>
